@@ -1,0 +1,50 @@
+version: '3'
+services:
+  flutter_web:
+    build:
+      context: ./flutter_web_app
+      dockerfile: Dockerfile
+    ports:
+      - 8082:80
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - rabbitmq
+      - worker
+    networks:
+      - mynetwork
+
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery -A myLoanProposal worker --loglevel=info
+    volumes:
+      - .:/code
+    depends_on:
+      - rabbitmq
+    networks:
+      - mynetwork
+
+
+  rabbitmq:
+    image: rabbitmq:3.8
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - mynetwork
+
+networks:
+    mynetwork:
+
+
