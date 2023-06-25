@@ -68,7 +68,7 @@ source venv/bin/activate
 Instale as ferramentas necessárias
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 Inicie o celery
