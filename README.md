@@ -23,7 +23,7 @@ ou
 docker-compose up --build
 ```
 
-Se por acaso obtiver algum erro ou problema como a utilização das portas definidas. Utilize os seguintes comandos.
+Se por acaso obtiver algum erro ou problema como a utilização das portas definidas, utilize os seguintes comandos.
 
 ```
 sudo lsof -i:PORT
@@ -32,17 +32,21 @@ sudo kill PID
 
 ### 🔧 2- Acesse o link abaixo para ter acesso a interface
 
+[Local host para aplicação MLP](http://localhost:8082/)
 
-[http://localhost:8082/]
 
 Se por acaso quiser acessar os dados da API, acessar o link abaixo
 
-[http://localhost:8000/]
+[Local host para aplicação MLP](http://localhost:8000/)
 
 
 ### ⚙️ 3- Admin do Django
 
-Para fazer login na página do admin do django, utilize as credenciais abaixo
+Para fazer login na área do admin do django, utilize as credenciais abaixo
+
+acesse o link :
+
+[Admin do Django ](http://localhost:8000/admin/login/?next=/admin/)
 
 ```
 username: DigitalsysTecnologia
